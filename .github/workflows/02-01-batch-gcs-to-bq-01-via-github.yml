@@ -4,7 +4,7 @@ on: workflow_dispatch # to be triggered manually
 
 env:
   # Environment Variables for Cloud Storage
-  GCS_BUCKET_NAME: gs://dataflow-bucket-gcp-practice-project-aman
+  GCS_BUCKET_NAME: gs://dataflow-bucket-e2e-pipeline-202405
   GCS_FOLDER_LOCATION: 02-google-template/01-batch-jobs/gcs-to-bigquery/01-text-file/01-via-github-actions
 
   # Environment Variables for Job
@@ -17,7 +17,7 @@ env:
 
   # Environment Variables for BigQuery
   BQ_SCHEMA_FILE_NAME: config/bq-schema.json
-  BQ_TABLE_NAME: gcp-practice-project-aman:raw_layer.dataflow_template_table
+  BQ_TABLE_NAME: e2e-pipeline-202405:raw_layer.dataflow_template_table
 
   # Environment Variables for Input Data
   INPUT_FILE_NAME: data/sample_input.csv
