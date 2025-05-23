@@ -1,0 +1,31 @@
+{
+  "name": "fpl-api-template",
+  "description": "Template to extract fields from a football API and write to BigQuery",
+  "parameters": [
+    {
+      "name": "apiEndpoint",
+      "label": "API Endpoint",
+      "helpText": "URL da API com os dados"
+    },
+    {
+      "name": "fieldsToExtract",
+      "label": "Fields to Extract",
+      "helpText": "Campos do JSON para extrair"
+    },
+    {
+      "name": "custom_gcs_temp_location",
+      "label": "GCS Temp Location",
+      "helpText": "Local temporário para BigQuery usar"
+    },
+    {
+      "name": "dataset",
+      "label": "Dataset",
+      "helpText": "Dataset do BigQuery"
+    },
+    {
+      "name": "table",
+      "label": "Tabela",
+      "helpText": "Tabela de destino no BigQuery"
+    }
+  ]
+}

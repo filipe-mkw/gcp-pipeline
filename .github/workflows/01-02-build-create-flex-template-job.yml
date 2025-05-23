@@ -49,13 +49,14 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
 
-      # Build the JSON Configuration file for the Dataflow Flex Template
       - name: Build Dataflow Template JSON Configuration File
+        working-directory: 01-flex-template/config
         run: |
           gcloud dataflow flex-template build \
-          ${{ env.TEMPLATE_GCS_PATH }} \
-          --sdk-language ${{ env.SDK_LANGUAGE }} \
-          --image ${{ env.GCR_IMAGE_PATH }}
+            ${{ env.TEMPLATE_GCS_PATH }} \
+            --sdk-language ${{ env.SDK_LANGUAGE }} \
+            --image ${{ env.GCR_IMAGE_PATH }} \
+            --metadata-file=metadata.json
 
       - name: Grant Dataflow Permissions
         run: |
