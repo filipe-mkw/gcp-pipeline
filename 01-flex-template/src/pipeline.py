@@ -7,7 +7,8 @@ from apache_beam.options.pipeline_options import GoogleCloudOptions
 from apache_beam.options.pipeline_options import PipelineOptions
 from apache_beam.options.pipeline_options import SetupOptions
  
- 
+logging.basicConfig(level=logging.INFO)
+
 class CustomPipelineOptions(PipelineOptions):
     @classmethod
     def _add_argparse_args(cls, parser):
@@ -153,6 +154,7 @@ def run(argv=None):
             | "Extract Fields" >> beam.ParDo(ExtractFields(custom_options.fieldsToExtract.get()))
             | "Add Event Number" >> beam.ParDo(AddEventNumber(custom_options.eventNumber))
             | "Add Datetime and Date" >> beam.ParDo(AddDatetimeAndDate())
+            | "Transform Complex Fields" >> beam.ParDo(TransformComplexFields())
             | "Write to BigQuery"
             >> beam.io.WriteToBigQuery(
                 table=custom_options.table.get(),
